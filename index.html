@@ -1,20 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Embedded Excel File</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Required</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #iframeContainer {
+            display: none;
+            width: 100%;
+            height: 100%;
         }
         iframe {
             width: 100%;
             height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://onedrive.live.com/embed?resid=2CCD7BBB1875D132%21504&authkey=!AJu0N50mgnzOvbA&em=2" frameborder="0"></iframe>
+
+    <div id="loginForm">
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="iframeContainer">
+        <iframe src="https://1drv.ms/x/s!AjLRdRi7e80shDD8rHgXD3CBuiDr?e=TfXhnE"></iframe>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'rad' && password === 'rad') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('iframeContainer').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+
 </body>
 </html>
